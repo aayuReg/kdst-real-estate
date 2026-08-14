@@ -1,0 +1,105 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Editorial workflow: edits no longer publish straight to the live site.
+# Saving a change creates a draft on its own branch, which shows up in the
+# CMS's "Workflow" board (Draft -> In Review -> Ready). Netlify builds a
+# private preview link for that draft automatically, so you can check it
+# looks right before clicking "Publish" to make it live. See the
+# "Staging / Preview Workflow" section in README-SETUP.md for the one-time
+# Netlify setting this depends on.
+publish_mode: editorial_workflow
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "properties"
+    label: "Properties"
+    files:
+      - name: "listings"
+        label: "Property Listings"
+        file: "data/properties.json"
+        description: "Add, edit, or remove properties shown on the Properties page."
+        fields:
+          - label: "Listings"
+            name: "listings"
+            widget: "list"
+            label_singular: "Property"
+            summary: "{{title}} — {{priceLabel}}"
+            fields:
+              - label: "Title"
+                name: "title"
+                widget: "string"
+                hint: "e.g. Premium Housing Colony - Sunsari"
+
+              - label: "Unique ID"
+                name: "id"
+                widget: "string"
+                hint: "Lowercase letters, numbers, and hyphens only, e.g. sunsari-premium-colony. Must be unique across all listings — used internally, not shown to visitors."
+                pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "Use lowercase letters, numbers, and hyphens only (e.g. sunsari-premium-colony) — no spaces, capitals, or symbols."]
+
+              - label: "Property Type"
+                name: "type"
+                widget: "select"
+                options:
+                  - { label: "Land Plot", value: "land" }
+                  - { label: "House", value: "house" }
+                  - { label: "Colony Project", value: "colony" }
+
+              - label: "Location Area"
+                name: "location"
+                widget: "select"
+                hint: "Used by the location filter on the Properties page."
+                options:
+                  - { label: "Kathmandu Valley", value: "kathmandu" }
+                  - { label: "Bhaktapur", value: "bhaktapur" }
+                  - { label: "Sunsari", value: "sunsari" }
+                  - { label: "Itahari", value: "itahari" }
+
+              - label: "Location (shown on card)"
+                name: "locationLabel"
+                widget: "string"
+                hint: "e.g. Lokanthali, Bhaktapur"
+
+              - label: "Photo"
+                name: "image"
+                widget: "image"
+
+              - label: "Badge (optional)"
+                name: "badge"
+                widget: "string"
+                required: false
+                hint: "e.g. Featured, New, Hot Deal. Leave blank for no badge."
+
+              - label: "Price (shown on card)"
+                name: "priceLabel"
+                widget: "string"
+                hint: "e.g. From NPR 45 Lakh"
+
+              - label: "Price in Lakh (for price filter)"
+                name: "priceValue"
+                widget: "number"
+                hint: "Numeric value in Lakh, e.g. 78. Used only for the price filter, not displayed."
+
+              - label: "Detail Tags"
+                name: "details"
+                widget: "list"
+                hint: "Small info chips shown on the card, e.g. size, road width, utilities."
+                fields:
+                  - label: "Icon"
+                    name: "icon"
+                    widget: "select"
+                    options:
+                      - { label: "Ruler (size)", value: "ruler" }
+                      - { label: "Verified Document", value: "file-check" }
+                      - { label: "Road", value: "road" }
+                      - { label: "Houses", value: "houses" }
+                      - { label: "Utilities (bolt)", value: "bolt" }
+                      - { label: "House", value: "home" }
+                      - { label: "Bank Financing", value: "bank" }
+
+                  - label: "Label"
+                    name: "label"
+                    widget: "string"
+                    hint: "e.g. 0-3-2-0 Aana"

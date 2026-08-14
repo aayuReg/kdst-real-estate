@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #1a5632;
+  --accent-color: #d4a574;
+  --text-color: #1a1a1a;
+  --gray-color: #6b7280;
+  --light-color: #f7f9f7;
+  --white-color: #fff;
+
+  /* --surface-color: card/section backgrounds. Separate from
+     --white-color (which stays pure white — it's used for text on
+     colored buttons/hero/footer, and needs to stay white in any mode). */
+  --surface-color: var(--white-color);
+  /* --heading-color: headings/links/borders that use the brand green
+     as a foreground color on a surface, as opposed to --primary-color's
+     other job as a solid button/hero background. */
+  --heading-color: var(--primary-color);
+  /* A lighter tan than --accent-color, specifically for text sitting
+     directly on --primary-color (e.g. footer headings). The base
+     accent color reads fine as small icons/borders but falls short of
+     4.5:1 as body-sized text on the dark green footer. */
+  --accent-on-dark: #e0ba91;
+
+  --radius: 8px;
+}
+
+/* DARK MODE: respects the visitor's OS/browser preference.
+   --primary-color, --accent-color and --white-color deliberately stay
+   the same in dark mode — they're used as button/hero backgrounds with
+   white text, which already has strong contrast in either mode. Only
+   the variables used for readable surfaces and long-form text change. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #e8ebe8;
+    --gray-color: #9aa3ab;
+    /* Two distinct dark tones so cards visually "float" above the page
+       instead of blending into it: --light-color is the darkest (used
+       for the page body and subtle alternating sections), --surface-color
+       is noticeably lighter (used for cards, the header, and anything
+       meant to stand out as its own surface). */
+    --light-color: #0f140f;
+    --surface-color: #1e2a22;
+    --heading-color: #4caf7d;
+  }
+
+  img:not([src*="placeholder"]):not([src*="og-cover"]) {
+    filter: brightness(0.92) contrast(1.02);
+  }
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--light-color);
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+/* ACCESSIBILITY: visible keyboard focus indicator.
+   Uses :focus-visible so mouse/touch clicks don't show a ring, but
+   keyboard (Tab) navigation always does. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.property-card:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip-to-content link: invisible until a keyboard user tabs to it,
+   then jumps straight past the header/nav into the page content. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--primary-color);
+  color: var(--white-color);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  z-index: 2000;
+  font-weight: 600;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ACCESSIBILITY: full reduced-motion support.
+   The reveal-on-scroll animation has its own override in components.css,
+   but this catches everything else site-wide — hover transitions, the
+   mobile menu slide, scripted smooth-scrolling (scrollIntoView/scrollTo
+   with behavior:'smooth' in main.js), etc. — for visitors who have
+   asked their OS/browser to minimize motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

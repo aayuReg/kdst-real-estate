@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /assets/reference-only/
+
+Sitemap: https://www.kdst-realestate.com/sitemap.xml

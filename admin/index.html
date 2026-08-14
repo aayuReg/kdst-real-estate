@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KDST Real Estate — Property Manager</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <!-- Decap CMS loads and renders the full admin UI here.
+         Pinned to an exact version (audit F25) rather than ^3.0.0, so an
+         upstream release can't silently change the admin bundle without
+         a deliberate version bump here. Latest stable at time of pinning:
+         3.15.1 — see https://github.com/decaporg/decap-cms/releases before upgrading. -->
+    <script src="https://unpkg.com/decap-cms@3.15.1/dist/decap-cms.js"></script>
+    <script>
+      // Redirect back to /admin/ after a client clicks the confirmation
+      // link in their invite/reset email, and keep them logged in.
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

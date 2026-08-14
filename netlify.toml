@@ -1,0 +1,59 @@
+[build]
+  publish = "."
+  command = ""
+
+# Security headers applied to every response.
+# NOTE: no Content-Security-Policy here on purpose — the /admin CMS
+# loads scripts from unpkg.com and identity.netlify.com, and getting
+# a CSP wrong there is a common way to silently break client logins.
+# Add one later (scoped to non-/admin paths) once the CMS setup is
+# stable and tested.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), camera=(), microphone=()"
+
+# Long cache for the static images bundled with the site itself.
+# NOTE (audit F26): /assets/uploads/* also matches the /assets/* pattern
+# below, so both rules technically apply to uploaded assets, and
+# Netlify's public docs don't spell out precedence for two [[headers]]
+# blocks that set the same header key on an overlapping path. Don't
+# assume which Cache-Control value "wins" — after any deploy, check the
+# actual response headers for a file under /assets/uploads/ (e.g. via
+# curl -I or your browser's network tab) and adjust the paths below
+# (e.g. scope the first rule to a narrower pattern that excludes
+# /assets/uploads/*) if the deployed behavior isn't what you expect.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Shorter cache for photos uploaded through the CMS — editors may
+# reuse a filename when swapping a photo, and we don't want visitors
+# stuck seeing the old one for a year. See the note above: verify this
+# actually takes effect over the /assets/* rule once deployed.
+[[headers]]
+  for = "/assets/uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Short cache for CSS/JS so fixes go live without visitors needing a
+# hard refresh, but still cached for the length of a browsing session.
+[[headers]]
+  for = "/style/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/script/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 301
+  force = false
