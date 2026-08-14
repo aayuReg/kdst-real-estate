@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./script/analytics.js"></script>
+    <script src="./script/analytics.js" defer></script>
     <meta
       name="description"
       content="Browse verified land plots and housing properties in Kathmandu Valley, Sunsari, and Itahari. KDST Real Estate - Trusted property listings."
@@ -109,7 +109,34 @@
 
         <!-- PROPERTIES GRID (rendered by script/properties-render.js from data/properties.json) -->
         <div class="properties-grid" id="propertiesGrid">
-          <p class="loading-text">Loading properties&hellip;</p>
+          <div class="property-card property-card-skeleton" aria-hidden="true">
+            <div class="property-image skeleton-shimmer"></div>
+            <div class="property-content">
+              <div class="skeleton-line skeleton-shimmer" style="width: 70%; height: 20px;"></div>
+              <div class="skeleton-line skeleton-shimmer" style="width: 45%; height: 14px; margin-top: 16px;"></div>
+              <div class="skeleton-line skeleton-shimmer" style="width: 90%; height: 14px; margin-top: 16px;"></div>
+              <div class="skeleton-line skeleton-shimmer" style="width: 100%; height: 44px; margin-top: 20px;"></div>
+            </div>
+          </div>
+          <div class="property-card property-card-skeleton" aria-hidden="true">
+            <div class="property-image skeleton-shimmer"></div>
+            <div class="property-content">
+              <div class="skeleton-line skeleton-shimmer" style="width: 70%; height: 20px;"></div>
+              <div class="skeleton-line skeleton-shimmer" style="width: 45%; height: 14px; margin-top: 16px;"></div>
+              <div class="skeleton-line skeleton-shimmer" style="width: 90%; height: 14px; margin-top: 16px;"></div>
+              <div class="skeleton-line skeleton-shimmer" style="width: 100%; height: 44px; margin-top: 20px;"></div>
+            </div>
+          </div>
+          <div class="property-card property-card-skeleton" aria-hidden="true">
+            <div class="property-image skeleton-shimmer"></div>
+            <div class="property-content">
+              <div class="skeleton-line skeleton-shimmer" style="width: 70%; height: 20px;"></div>
+              <div class="skeleton-line skeleton-shimmer" style="width: 45%; height: 14px; margin-top: 16px;"></div>
+              <div class="skeleton-line skeleton-shimmer" style="width: 90%; height: 14px; margin-top: 16px;"></div>
+              <div class="skeleton-line skeleton-shimmer" style="width: 100%; height: 44px; margin-top: 20px;"></div>
+            </div>
+          </div>
+          <p class="loading-text sr-only" role="status">Loading properties&hellip;</p>
         </div>
 
         <!-- NO RESULTS MESSAGE -->
