@@ -1,15 +1,6 @@
 {
   "listings": [
     {
-      "id": "sunsari-premium-colony",
-      "title": "Premium Housing Colony - Sunsari",
-      "type": "colony",
-      "location": "sunsari",
-      "locationLabel": "Sunsari District",
-      "image": "assets/icons/placeholder-colony.jpg",
-      "badge": "Featured",
-      "priceLabel": "From NPR 45 Lakh",
-      "priceValue": 45,
       "details": [
         {
           "icon": "ruler",
@@ -19,18 +10,18 @@
           "icon": "file-check",
           "label": "Verified Docs"
         }
-      ]
+      ],
+      "badge": "Featured",
+      "priceValue": 45,
+      "priceLabel": "From NPR 45 Lakh",
+      "location": "sunsari",
+      "title": "Premium Housing Colony - Sunsari",
+      "type": "colony",
+      "id": "sunsari-premium-colony",
+      "image": "assets/icons/placeholder-colony.jpg",
+      "locationLabel": "Sunsari District"
     },
     {
-      "id": "bhaktapur-lokanthali-land",
-      "title": "Residential Land - Lokanthali",
-      "type": "land",
-      "location": "bhaktapur",
-      "locationLabel": "Lokanthali, Bhaktapur",
-      "image": "assets/icons/placeholder-land.jpg",
-      "badge": "New",
-      "priceLabel": "NPR 78 Lakh",
-      "priceValue": 78,
       "details": [
         {
           "icon": "ruler",
@@ -40,18 +31,18 @@
           "icon": "road",
           "label": "13 Feet Road"
         }
-      ]
+      ],
+      "badge": "New",
+      "priceValue": 78,
+      "priceLabel": "NPR 78 Lakh",
+      "location": "bhaktapur",
+      "title": "Residential Land - Lokanthali",
+      "type": "land",
+      "id": "bhaktapur-lokanthali-land",
+      "image": "assets/icons/placeholder-land.jpg",
+      "locationLabel": "Lokanthali, Bhaktapur"
     },
     {
-      "id": "itahari-residential-colony",
-      "title": "Itahari Residential Colony",
-      "type": "colony",
-      "location": "itahari",
-      "locationLabel": "Itahari-5, Near Highway",
-      "image": "assets/icons/placeholder-colony.jpg",
-      "badge": "Hot Deal",
-      "priceLabel": "From NPR 35 Lakh",
-      "priceValue": 35,
       "details": [
         {
           "icon": "houses",
@@ -61,18 +52,18 @@
           "icon": "bolt",
           "label": "All Utilities"
         }
-      ]
+      ],
+      "badge": "Hot Deal",
+      "priceValue": 35,
+      "priceLabel": "From NPR 35 Lakh",
+      "location": "itahari",
+      "title": "Itahari Residential Colony",
+      "type": "colony",
+      "id": "itahari-residential-colony",
+      "image": "assets/icons/placeholder-colony.jpg",
+      "locationLabel": "Itahari-5, Near Highway"
     },
     {
-      "id": "kathmandu-commercial-land",
-      "title": "Commercial Land - Kathmandu",
-      "type": "land",
-      "location": "kathmandu",
-      "locationLabel": "Kathmandu Metropolitan",
-      "image": "assets/icons/placeholder-land.jpg",
-      "badge": "",
-      "priceLabel": "NPR 1.2 Crore",
-      "priceValue": 120,
       "details": [
         {
           "icon": "ruler",
@@ -82,18 +73,18 @@
           "icon": "road",
           "label": "Main Road Access"
         }
-      ]
+      ],
+      "badge": "",
+      "priceValue": 120,
+      "priceLabel": "NPR 1.2 Crore",
+      "location": "kathmandu",
+      "title": "Commercial Land - Kathmandu",
+      "type": "land",
+      "id": "kathmandu-commercial-land",
+      "image": "assets/icons/placeholder-land.jpg",
+      "locationLabel": "Kathmandu Metropolitan"
     },
     {
-      "id": "sunsari-modern-house",
-      "title": "Modern House with Land",
-      "type": "house",
-      "location": "sunsari",
-      "locationLabel": "Sunsari-8",
-      "image": "assets/icons/placeholder-house.jpg",
-      "badge": "",
-      "priceLabel": "NPR 95 Lakh",
-      "priceValue": 95,
       "details": [
         {
           "icon": "home",
@@ -103,18 +94,18 @@
           "icon": "ruler",
           "label": "0-4-0-0 Aana"
         }
-      ]
+      ],
+      "badge": "",
+      "priceValue": 95,
+      "priceLabel": "NPR 95 Lakh",
+      "location": "sunsari",
+      "title": "Modern House with Land",
+      "type": "house",
+      "id": "sunsari-modern-house",
+      "image": "assets/icons/placeholder-house.jpg",
+      "locationLabel": "Sunsari-8"
     },
     {
-      "id": "bhaktapur-planned-colony",
-      "title": "Planned Colony - Bhaktapur",
-      "type": "colony",
-      "location": "bhaktapur",
-      "locationLabel": "Bhaktapur Municipality",
-      "image": "assets/icons/placeholder-colony.jpg",
-      "badge": "Limited Plots",
-      "priceLabel": "From NPR 52 Lakh",
-      "priceValue": 52,
       "details": [
         {
           "icon": "houses",
@@ -124,7 +115,28 @@
           "icon": "bank",
           "label": "Bank Financing"
         }
-      ]
-    }
+      ],
+      "badge": "Limited Plots",
+      "priceValue": 52,
+      "priceLabel": "From NPR 52 Lakh",
+      "location": "bhaktapur",
+      "title": "Planned Colony - Bhaktapur",
+      "type": "colony",
+      "id": "bhaktapur-planned-colony",
+      "image": "assets/icons/placeholder-colony.jpg",
+      "locationLabel": "Bhaktapur Municipality"
+    },
+    {
+      "details": [],
+      "priceValue": 3000000,
+      "priceLabel": "30 lakh",
+      "location": "bhaktapur",
+      "title": "Project 20",
+      "type": "land",
+      "id": "madhyapur-thimi-kaushaltar-land",
+      "image": "/assets/uploads/whatsapp_image_2025-12-10_at_08_04_33.jpeg",
+      "locationLabel": "kaushaltar"
+    },
+    {}
   ]
 }
