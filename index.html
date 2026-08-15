@@ -4,6 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./script/analytics.js" defer></script>
+
+    <!-- Netlify Identity invite/password-reset links always point to the
+         site's homepage (never directly to /admin/), carrying a token in
+         the URL like #invite_token=xxxx. This widget catches that token
+         and opens the "set your password" prompt automatically, then
+         sends the user on to /admin/ once they're logged in. Without this,
+         the link just loads the homepage normally and the token is lost. -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
     <meta
       name="description"
       content="KDST Real Estate - Trusted land and housing transactions in Kathmandu Valley, Nepal. Find verified plots with clear documentation."
