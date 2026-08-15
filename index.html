@@ -3,16 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./script/analytics.js" defer></script>
-
-    <!-- Netlify Identity invite/password-reset links always point to the
-         site's homepage (never directly to /admin/), carrying a token in
-         the URL like #invite_token=xxxx. This widget catches that token
-         and opens the "set your password" prompt automatically, then
-         sends the user on to /admin/ once they're logged in. Without this,
-         the link just loads the homepage normally and the token is lost. -->
+    <title>KDST Real Estate — Property Manager</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <!-- Small persistent link back to the live site, since Decap CMS's
+         admin UI has no built-in way to navigate away from /admin. -->
+    <a
+      href="/"
+      style="
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        z-index: 9999;
+        background: #1a1a1a;
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-family: sans-serif;
+        font-size: 14px;
+        text-decoration: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      "
+      >&larr; Back to site</a
+    >
+
+    <!-- Decap CMS loads and renders the full admin UI here.
+         Pinned to an exact version (audit F25) rather than ^3.0.0, so an
+         upstream release can't silently change the admin bundle without
+         a deliberate version bump here. Latest stable at time of pinning:
+         3.15.1 — see https://github.com/decaporg/decap-cms/releases before upgrading. -->
+    <script src="https://unpkg.com/decap-cms@3.15.1/dist/decap-cms.js"></script>
     <script>
+      // Redirect back to /admin/ after a client clicks the confirmation
+      // link in their invite/reset email, and keep them logged in.
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user) => {
           if (!user) {
@@ -23,185 +47,5 @@
         });
       }
     </script>
-    <meta
-      name="description"
-      content="KDST Real Estate - Trusted land and housing transactions in Kathmandu Valley, Nepal. Find verified plots with clear documentation."
-    />
-    <title>KDST Real Estate | Land Deals in Nepal</title>
-    <link rel="canonical" href="https://www.kdst-realestate.com/" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/assets/icons/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#1a5632" />
-
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="KDST Real Estate" />
-    <meta property="og:title" content="KDST Real Estate | Land Deals in Nepal" />
-    <meta property="og:description" content="Trusted land and housing transactions in Kathmandu Valley, Nepal. Find verified plots with clear documentation." />
-    <meta property="og:image" content="https://www.kdst-realestate.com/assets/icons/og-cover.jpg" />
-    <meta property="og:url" content="https://www.kdst-realestate.com/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="KDST Real Estate | Land Deals in Nepal" />
-    <meta name="twitter:description" content="Trusted land and housing transactions in Kathmandu Valley, Nepal." />
-    <meta name="twitter:image" content="https://www.kdst-realestate.com/assets/icons/og-cover.jpg" />
-
-    <link rel="stylesheet" href="./style/base.css" />
-    <link rel="stylesheet" href="./style/layout.css" />
-    <link rel="stylesheet" href="./style/components.css" />
-
-    <script src="./script/main.js" defer></script>
-
-    <!-- Structured data: helps Google show address/phone/hours directly in search -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "KDST Real Estate",
-      "image": "https://www.kdst-realestate.com/assets/icons/og-cover.jpg",
-      "url": "https://www.kdst-realestate.com/",
-      "telephone": "+977-9851119368",
-      "email": "info@kdst-realestate.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Lokanthali",
-        "addressLocality": "Bhaktapur",
-        "addressRegion": "Bagmati Province",
-        "addressCountry": "NP"
-      },
-      "areaServed": ["Kathmandu Valley", "Bhaktapur", "Sunsari", "Itahari"],
-      "openingHours": "Su-Fr 10:00-17:00"
-    }
-    </script>
-  </head>
-  <body>
-    <a href="#main-content" class="skip-link">Skip to content</a>
-    <!-- HEADER -->
-    <header class="header">
-      <div class="container">
-        <a href="index.html" class="logo">KDST</a>
-        <nav class="nav">
-          <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
-          <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="properties.html">Properties</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main-content">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <span class="badge"
-            >Verified Land · Trusted Deals · Build Colonies</span
-          >
-          <h1 class="hero-title">Secure Your Ideal Plot and Housing with Local Experts</h1>
-          <p>
-            We help buyers find verified land and housing across Kathmandu
-            Valley, Sunsari and Itahari regions with transparent pricing,
-            authentic documentation, and trusted guidance — whether you're
-            building a home or investing for the future.
-          </p>
-          <div class="hero-buttons">
-            <a href="properties.html" class="btn btn-primary"
-              >Browse Properties</a
-            >
-            <a href="contact.html" class="btn btn-secondary">Talk to Agent</a>
-          </div>
-        </div>
-        <div class="hero-image">
-          <img
-            src="assets/hero-land.jpeg"
-            srcset="assets/hero-land-640.jpeg 640w, assets/hero-land.jpeg 1280w"
-            sizes="(max-width: 1023px) 100vw, 640px"
-            alt="Aerial rendering of a planned KDST land colony with paved roads and green plots"
-            width="1280"
-            height="728"
-            decoding="async"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="features">
-      <div class="container">
-        <h3 class="section-title">Our Commitment to You</h3>
-        <div class="grid">
-          <div class="card">
-            <h4>Verified Documents</h4>
-            <p>
-              We ensure all land titles and ownership papers are legally sound
-              and verified by our professional team before any transaction.
-            </p>
-          </div>
-          <div class="card">
-            <h4>Local Expertise</h4>
-            <p>
-              Deep knowledge of land valuation, zoning regulations, and future
-              growth prospects across prime locations in Nepal.
-            </p>
-          </div>
-          <div class="card">
-            <h4>Transparent Process</h4>
-            <p>
-              From initial inquiry to final registration, our process is clear,
-              honest, and client-focused with no hidden costs.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <h4>KDST Real Estate</h4>
-            <p>
-              Your reliable partner for trusted land transactions across
-              Nepal. Building trust, one plot at a time.
-            </p>
-          </div>
-          <div>
-            <h4>Quick Links</h4>
-            <ul class="footer-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="properties.html">Properties</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <p>
-              Lokanthali, Bhaktapur<br />Phone: +977 9851119368<br />Email:
-              info@kdst-realestate.com
-            </p>
-          </div>
-          <div>
-            <h4>Office Hours</h4>
-            <p>
-              Sunday - Friday <br />10:00 AM - 5:00 PM <br />Saturday: Closed
-            </p>
-          </div>
-          <div class="footer-bottom">
-            <p>&copy; <span id="copyrightYear">2025</span> KDST Real Estate Nepal. All rights reserved. &nbsp;·&nbsp; <a href="/admin/" class="footer-bottom-link">Staff Login</a> &nbsp;·&nbsp; <a href="privacy-policy.html" class="footer-bottom-link">Privacy Policy</a></p>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>
