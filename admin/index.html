@@ -7,6 +7,27 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
+    <!-- Small persistent link back to the live site, since Decap CMS's
+         admin UI has no built-in way to navigate away from /admin. -->
+    <a
+      href="/"
+      style="
+        position: fixed;
+        top: 12px;
+        left: 12px;
+        z-index: 9999;
+        background: #1a1a1a;
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-family: sans-serif;
+        font-size: 14px;
+        text-decoration: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+      "
+      >&larr; Back to site</a
+    >
+
     <!-- Decap CMS loads and renders the full admin UI here.
          Pinned to an exact version (audit F25) rather than ^3.0.0, so an
          upstream release can't silently change the admin bundle without
