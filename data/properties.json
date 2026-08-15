@@ -125,18 +125,6 @@
       "id": "bhaktapur-planned-colony",
       "image": "assets/icons/placeholder-colony.jpg",
       "locationLabel": "Bhaktapur Municipality"
-    },
-    {
-      "details": [],
-      "priceValue": 3000000,
-      "priceLabel": "30 lakh",
-      "location": "bhaktapur",
-      "title": "Project 20",
-      "type": "land",
-      "id": "madhyapur-thimi-kaushaltar-land",
-      "image": "/assets/uploads/whatsapp_image_2025-12-10_at_08_04_33.jpeg",
-      "locationLabel": "kaushaltar"
-    },
-    {}
+    }
   ]
 }
