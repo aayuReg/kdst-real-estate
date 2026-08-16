@@ -1,0 +1,22 @@
+{
+  "id": "kathmandu-commercial-land",
+  "order": 40,
+  "title": "Commercial Land - Kathmandu",
+  "type": "land",
+  "location": "kathmandu",
+  "locationLabel": "Kathmandu Metropolitan",
+  "image": "assets/icons/placeholder-land.jpg",
+  "badge": "",
+  "priceLabel": "NPR 1.2 Crore",
+  "priceValue": 120,
+  "details": [
+    {
+      "icon": "ruler",
+      "label": "0-5-0-0 Aana"
+    },
+    {
+      "icon": "road",
+      "label": "Main Road Access"
+    }
+  ]
+}

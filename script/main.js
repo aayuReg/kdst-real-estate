@@ -99,8 +99,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // form, paste the real endpoint below. Until then, the form falls back
 // to opening the visitor's email client with the message pre-filled,
 // so no inquiry is ever silently lost.
-const FORM_ENDPOINT = 'https://formspree.io/f/mgawzzna';
-const FALLBACK_EMAIL = 'info@kdst-realestate.com';
+const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+const FALLBACK_EMAIL = 'info@kdst-real-estate.com';
 const isFormEndpointConfigured = !FORM_ENDPOINT.includes('YOUR_FORM_ID');
 
 // Pre-fill "Property Interest" from a query string, e.g.

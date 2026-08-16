@@ -1,0 +1,22 @@
+{
+  "id": "itahari-residential-colony",
+  "order": 30,
+  "title": "Itahari Residential Colony",
+  "type": "colony",
+  "location": "itahari",
+  "locationLabel": "Itahari-5, Near Highway",
+  "image": "assets/icons/placeholder-colony.jpg",
+  "badge": "Hot Deal",
+  "priceLabel": "From NPR 35 Lakh",
+  "priceValue": 35,
+  "details": [
+    {
+      "icon": "houses",
+      "label": "25 Plots Available"
+    },
+    {
+      "icon": "bolt",
+      "label": "All Utilities"
+    }
+  ]
+}

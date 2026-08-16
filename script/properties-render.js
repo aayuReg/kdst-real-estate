@@ -16,11 +16,8 @@ function icon(name) {
   return `<span class="detail-icon">${ICONS[name] || ""}</span>`;
 }
 
-function escapeHTML(str) {
-  const div = document.createElement("div");
-  div.textContent = str ?? "";
-  return div.innerHTML;
-}
+// escapeHTML lives in script/render-utils.js (shared with plots-render.js).
+const escapeHTML = window.KDST.escapeHTML;
 
 // F08: validate image sources rather than trusting them blindly.
 // Escaping (above) prevents HTML/script injection, but a malicious or
@@ -39,7 +36,7 @@ function safeImageSrc(rawSrc) {
     return value;
   }
 
-  // Same-origin absolute URL (e.g. a canonical https://www.kdst-realestate.com/assets/... link).
+  // Same-origin absolute URL (e.g. a canonical https://www.kdst-real-estate.com/assets/... link).
   try {
     const url = new URL(value, window.location.href);
     if (url.origin === window.location.origin && /^\/?assets\//.test(url.pathname)) {
@@ -78,6 +75,14 @@ function propertyCardHTML(p) {
     )
     .join("");
 
+  // "View Plot Map" only shows for colony listings that actually have
+  // per-plot data — most listings won't have this, so the card falls
+  // back to just "Contact Agent" (below) when it's absent.
+  const hasPlotMap = p.type === "colony" && Array.isArray(p.plots) && p.plots.length > 0;
+  const plotMapButton = hasPlotMap
+    ? `<a href="plots.html?id=${encodeURIComponent(p.id)}" class="btn btn-secondary btn-full mb-12">View Plot Map</a>`
+    : "";
+
   return `
     <div class="property-card" data-type="${escapeHTML(p.type)}" data-location="${escapeHTML(p.location)}" data-price="${Number(p.priceValue) || 0}" data-property-id="${escapeHTML(p.id)}">
       <div class="property-image">
@@ -89,6 +94,7 @@ function propertyCardHTML(p) {
         <div class="property-location">${icon("pin")}<span>${escapeHTML(p.locationLabel)}</span></div>
         <div class="property-details">${details}</div>
         <div class="property-price">${escapeHTML(p.priceLabel)}</div>
+        ${plotMapButton}
         <a href="contact.html?property=${encodeURIComponent(p.title)}" class="btn btn-primary btn-full">Contact Agent</a>
       </div>
     </div>

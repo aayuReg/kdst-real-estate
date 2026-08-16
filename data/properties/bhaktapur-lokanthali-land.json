@@ -1,0 +1,22 @@
+{
+  "id": "bhaktapur-lokanthali-land",
+  "order": 20,
+  "title": "Residential Land - Lokanthali",
+  "type": "land",
+  "location": "bhaktapur",
+  "locationLabel": "Lokanthali, Bhaktapur",
+  "image": "assets/icons/placeholder-land.jpg",
+  "badge": "New",
+  "priceLabel": "NPR 78 Lakh",
+  "priceValue": 78,
+  "details": [
+    {
+      "icon": "ruler",
+      "label": "0-3-2-0 Aana"
+    },
+    {
+      "icon": "road",
+      "label": "13 Feet Road"
+    }
+  ]
+}

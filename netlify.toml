@@ -1,6 +1,11 @@
 [build]
   publish = "."
-  command = ""
+  # Combines data/properties/*.json (one file per property, edited
+  # individually via the CMS) into data/properties.json, which
+  # script/properties-render.js fetches. See scripts/build-properties.js.
+  # No external dependencies — plain Node, so this doesn't need a
+  # package.json or `npm install` step.
+  command = "node scripts/build-properties.js"
 
 # Security headers applied to every response.
 # NOTE: no Content-Security-Policy here on purpose — the /admin CMS

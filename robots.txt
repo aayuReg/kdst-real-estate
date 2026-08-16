@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /assets/reference-only/
 
-Sitemap: https://www.kdst-realestate.com/sitemap.xml
+Sitemap: https://www.kdst-real-estate.com/sitemap.xml

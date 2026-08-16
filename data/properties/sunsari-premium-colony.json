@@ -1,0 +1,22 @@
+{
+  "id": "sunsari-premium-colony",
+  "order": 10,
+  "title": "Premium Housing Colony - Sunsari",
+  "type": "colony",
+  "location": "sunsari",
+  "locationLabel": "Sunsari District",
+  "image": "assets/icons/placeholder-colony.jpg",
+  "badge": "Featured",
+  "priceLabel": "From NPR 45 Lakh",
+  "priceValue": 45,
+  "details": [
+    {
+      "icon": "ruler",
+      "label": "5-0-0-0 (Multiple Plots)"
+    },
+    {
+      "icon": "file-check",
+      "label": "Verified Docs"
+    }
+  ]
+}

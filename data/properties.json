@@ -1,6 +1,16 @@
 {
   "listings": [
     {
+      "id": "sunsari-premium-colony",
+      "order": 10,
+      "title": "Premium Housing Colony - Sunsari",
+      "type": "colony",
+      "location": "sunsari",
+      "locationLabel": "Sunsari District",
+      "image": "assets/icons/placeholder-colony.jpg",
+      "badge": "Featured",
+      "priceLabel": "From NPR 45 Lakh",
+      "priceValue": 45,
       "details": [
         {
           "icon": "ruler",
@@ -10,18 +20,19 @@
           "icon": "file-check",
           "label": "Verified Docs"
         }
-      ],
-      "badge": "Featured",
-      "priceValue": 45,
-      "priceLabel": "From NPR 45 Lakh",
-      "location": "sunsari",
-      "title": "Premium Housing Colony - Sunsari",
-      "type": "colony",
-      "id": "sunsari-premium-colony",
-      "image": "assets/icons/placeholder-colony.jpg",
-      "locationLabel": "Sunsari District"
+      ]
     },
     {
+      "id": "bhaktapur-lokanthali-land",
+      "order": 20,
+      "title": "Residential Land - Lokanthali",
+      "type": "land",
+      "location": "bhaktapur",
+      "locationLabel": "Lokanthali, Bhaktapur",
+      "image": "assets/icons/placeholder-land.jpg",
+      "badge": "New",
+      "priceLabel": "NPR 78 Lakh",
+      "priceValue": 78,
       "details": [
         {
           "icon": "ruler",
@@ -31,18 +42,19 @@
           "icon": "road",
           "label": "13 Feet Road"
         }
-      ],
-      "badge": "New",
-      "priceValue": 78,
-      "priceLabel": "NPR 78 Lakh",
-      "location": "bhaktapur",
-      "title": "Residential Land - Lokanthali",
-      "type": "land",
-      "id": "bhaktapur-lokanthali-land",
-      "image": "assets/icons/placeholder-land.jpg",
-      "locationLabel": "Lokanthali, Bhaktapur"
+      ]
     },
     {
+      "id": "itahari-residential-colony",
+      "order": 30,
+      "title": "Itahari Residential Colony",
+      "type": "colony",
+      "location": "itahari",
+      "locationLabel": "Itahari-5, Near Highway",
+      "image": "assets/icons/placeholder-colony.jpg",
+      "badge": "Hot Deal",
+      "priceLabel": "From NPR 35 Lakh",
+      "priceValue": 35,
       "details": [
         {
           "icon": "houses",
@@ -52,18 +64,19 @@
           "icon": "bolt",
           "label": "All Utilities"
         }
-      ],
-      "badge": "Hot Deal",
-      "priceValue": 35,
-      "priceLabel": "From NPR 35 Lakh",
-      "location": "itahari",
-      "title": "Itahari Residential Colony",
-      "type": "colony",
-      "id": "itahari-residential-colony",
-      "image": "assets/icons/placeholder-colony.jpg",
-      "locationLabel": "Itahari-5, Near Highway"
+      ]
     },
     {
+      "id": "kathmandu-commercial-land",
+      "order": 40,
+      "title": "Commercial Land - Kathmandu",
+      "type": "land",
+      "location": "kathmandu",
+      "locationLabel": "Kathmandu Metropolitan",
+      "image": "assets/icons/placeholder-land.jpg",
+      "badge": "",
+      "priceLabel": "NPR 1.2 Crore",
+      "priceValue": 120,
       "details": [
         {
           "icon": "ruler",
@@ -73,18 +86,19 @@
           "icon": "road",
           "label": "Main Road Access"
         }
-      ],
-      "badge": "",
-      "priceValue": 120,
-      "priceLabel": "NPR 1.2 Crore",
-      "location": "kathmandu",
-      "title": "Commercial Land - Kathmandu",
-      "type": "land",
-      "id": "kathmandu-commercial-land",
-      "image": "assets/icons/placeholder-land.jpg",
-      "locationLabel": "Kathmandu Metropolitan"
+      ]
     },
     {
+      "id": "sunsari-modern-house",
+      "order": 50,
+      "title": "Modern House with Land",
+      "type": "house",
+      "location": "sunsari",
+      "locationLabel": "Sunsari-8",
+      "image": "assets/icons/placeholder-house.jpg",
+      "badge": "",
+      "priceLabel": "NPR 95 Lakh",
+      "priceValue": 95,
       "details": [
         {
           "icon": "home",
@@ -94,18 +108,19 @@
           "icon": "ruler",
           "label": "0-4-0-0 Aana"
         }
-      ],
-      "badge": "",
-      "priceValue": 95,
-      "priceLabel": "NPR 95 Lakh",
-      "location": "sunsari",
-      "title": "Modern House with Land",
-      "type": "house",
-      "id": "sunsari-modern-house",
-      "image": "assets/icons/placeholder-house.jpg",
-      "locationLabel": "Sunsari-8"
+      ]
     },
     {
+      "id": "bhaktapur-planned-colony",
+      "order": 60,
+      "title": "Planned Colony - Bhaktapur",
+      "type": "colony",
+      "location": "bhaktapur",
+      "locationLabel": "Bhaktapur Municipality",
+      "image": "assets/icons/placeholder-colony.jpg",
+      "badge": "Limited Plots",
+      "priceLabel": "From NPR 52 Lakh",
+      "priceValue": 52,
       "details": [
         {
           "icon": "houses",
@@ -116,15 +131,129 @@
           "label": "Bank Financing"
         }
       ],
-      "badge": "Limited Plots",
-      "priceValue": 52,
-      "priceLabel": "From NPR 52 Lakh",
-      "location": "bhaktapur",
-      "title": "Planned Colony - Bhaktapur",
-      "type": "colony",
-      "id": "bhaktapur-planned-colony",
-      "image": "assets/icons/placeholder-colony.jpg",
-      "locationLabel": "Bhaktapur Municipality"
+      "plots": [
+        {
+          "label": "A1",
+          "block": "Block A",
+          "row": 1,
+          "col": 1,
+          "sizeLabel": "4-0-0-0 Aana",
+          "status": "available"
+        },
+        {
+          "label": "A2",
+          "block": "Block A",
+          "row": 2,
+          "col": 1,
+          "sizeLabel": "4-0-0-0 Aana",
+          "status": "available"
+        },
+        {
+          "label": "A3",
+          "block": "Block A",
+          "row": 3,
+          "col": 1,
+          "sizeLabel": "4-2-0-0 Aana",
+          "status": "sold"
+        },
+        {
+          "label": "A4",
+          "block": "Block A",
+          "row": 4,
+          "col": 1,
+          "sizeLabel": "4-0-0-0 Aana",
+          "status": "available"
+        },
+        {
+          "label": "A5",
+          "block": "Block A",
+          "row": 5,
+          "col": 1,
+          "sizeLabel": "3-3-0-0 Aana",
+          "status": "reserved"
+        },
+        {
+          "label": "B1",
+          "block": "Block B",
+          "row": 1,
+          "col": 1,
+          "sizeLabel": "4-0-0-0 Aana",
+          "status": "available"
+        },
+        {
+          "label": "B2",
+          "block": "Block B",
+          "row": 2,
+          "col": 1,
+          "sizeLabel": "4-0-0-0 Aana",
+          "status": "sold"
+        },
+        {
+          "label": "B3",
+          "block": "Block B",
+          "row": 3,
+          "col": 1,
+          "sizeLabel": "4-2-0-0 Aana",
+          "status": "available"
+        },
+        {
+          "label": "B4",
+          "block": "Block B",
+          "row": 4,
+          "col": 1,
+          "sizeLabel": "4-0-0-0 Aana",
+          "status": "available"
+        },
+        {
+          "label": "B5",
+          "block": "Block B",
+          "row": 5,
+          "col": 1,
+          "sizeLabel": "3-3-0-0 Aana",
+          "status": "available",
+          "priceLabel": "NPR 60 Lakh"
+        },
+        {
+          "label": "C1",
+          "block": "Block C",
+          "row": 1,
+          "col": 1,
+          "sizeLabel": "4-0-0-0 Aana",
+          "status": "reserved"
+        },
+        {
+          "label": "C2",
+          "block": "Block C",
+          "row": 2,
+          "col": 1,
+          "sizeLabel": "4-0-0-0 Aana",
+          "status": "available"
+        },
+        {
+          "label": "C3",
+          "block": "Block C",
+          "row": 3,
+          "col": 1,
+          "sizeLabel": "4-2-0-0 Aana",
+          "status": "available"
+        },
+        {
+          "label": "C4",
+          "block": "Block C",
+          "row": 4,
+          "col": 1,
+          "sizeLabel": "4-0-0-0 Aana",
+          "status": "sold"
+        },
+        {
+          "label": "C5",
+          "block": "Block C",
+          "row": 5,
+          "col": 1,
+          "sizeLabel": "3-3-0-0 Aana",
+          "status": "available"
+        }
+      ]
     }
   ]
 }

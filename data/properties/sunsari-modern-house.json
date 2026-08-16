@@ -1,0 +1,22 @@
+{
+  "id": "sunsari-modern-house",
+  "order": 50,
+  "title": "Modern House with Land",
+  "type": "house",
+  "location": "sunsari",
+  "locationLabel": "Sunsari-8",
+  "image": "assets/icons/placeholder-house.jpg",
+  "badge": "",
+  "priceLabel": "NPR 95 Lakh",
+  "priceValue": 95,
+  "details": [
+    {
+      "icon": "home",
+      "label": "3 BHK"
+    },
+    {
+      "icon": "ruler",
+      "label": "0-4-0-0 Aana"
+    }
+  ]
+}

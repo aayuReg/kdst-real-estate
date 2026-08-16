@@ -1,0 +1,39 @@
+{
+  "id": "bhaktapur-planned-colony",
+  "order": 60,
+  "title": "Planned Colony - Bhaktapur",
+  "type": "colony",
+  "location": "bhaktapur",
+  "locationLabel": "Bhaktapur Municipality",
+  "image": "assets/icons/placeholder-colony.jpg",
+  "badge": "Limited Plots",
+  "priceLabel": "From NPR 52 Lakh",
+  "priceValue": 52,
+  "details": [
+    {
+      "icon": "houses",
+      "label": "15 Plots"
+    },
+    {
+      "icon": "bank",
+      "label": "Bank Financing"
+    }
+  ],
+  "plots": [
+    { "label": "A1", "block": "Block A", "row": 1, "col": 1, "sizeLabel": "4-0-0-0 Aana", "status": "available" },
+    { "label": "A2", "block": "Block A", "row": 2, "col": 1, "sizeLabel": "4-0-0-0 Aana", "status": "available" },
+    { "label": "A3", "block": "Block A", "row": 3, "col": 1, "sizeLabel": "4-2-0-0 Aana", "status": "sold" },
+    { "label": "A4", "block": "Block A", "row": 4, "col": 1, "sizeLabel": "4-0-0-0 Aana", "status": "available" },
+    { "label": "A5", "block": "Block A", "row": 5, "col": 1, "sizeLabel": "3-3-0-0 Aana", "status": "reserved" },
+    { "label": "B1", "block": "Block B", "row": 1, "col": 1, "sizeLabel": "4-0-0-0 Aana", "status": "available" },
+    { "label": "B2", "block": "Block B", "row": 2, "col": 1, "sizeLabel": "4-0-0-0 Aana", "status": "sold" },
+    { "label": "B3", "block": "Block B", "row": 3, "col": 1, "sizeLabel": "4-2-0-0 Aana", "status": "available" },
+    { "label": "B4", "block": "Block B", "row": 4, "col": 1, "sizeLabel": "4-0-0-0 Aana", "status": "available" },
+    { "label": "B5", "block": "Block B", "row": 5, "col": 1, "sizeLabel": "3-3-0-0 Aana", "status": "available", "priceLabel": "NPR 60 Lakh" },
+    { "label": "C1", "block": "Block C", "row": 1, "col": 1, "sizeLabel": "4-0-0-0 Aana", "status": "reserved" },
+    { "label": "C2", "block": "Block C", "row": 2, "col": 1, "sizeLabel": "4-0-0-0 Aana", "status": "available" },
+    { "label": "C3", "block": "Block C", "row": 3, "col": 1, "sizeLabel": "4-2-0-0 Aana", "status": "available" },
+    { "label": "C4", "block": "Block C", "row": 4, "col": 1, "sizeLabel": "4-0-0-0 Aana", "status": "sold" },
+    { "label": "C5", "block": "Block C", "row": 5, "col": 1, "sizeLabel": "3-3-0-0 Aana", "status": "available" }
+  ]
+}

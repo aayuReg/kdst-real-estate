@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./script/analytics.js" defer></script>
+    <meta
+      name="description"
+      content="Browse individual plots in KDST Real Estate's planned colonies, with size, price, and availability for each plot."
+    />
+    <title>Plot Map | KDST Real Estate</title>
+    <!-- Not indexed: this page mirrors data already shown on the
+         Properties page, filtered to one listing via a query string.
+         Treated as a utility view rather than crawlable content — see
+         README-SETUP.md if that should change later (would need a
+         real per-colony URL, not a query param, to be indexed well). -->
+    <meta name="robots" content="noindex, follow" />
+
+    <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/assets/icons/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1a5632" />
+
+    <link rel="stylesheet" href="./style/base.css" />
+    <link rel="stylesheet" href="./style/layout.css" />
+    <link rel="stylesheet" href="./style/components.css" />
+    <script src="./script/main.js" defer></script>
+    <script src="./script/render-utils.js" defer></script>
+    <script src="./script/plots-render.js" defer></script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="logo">KDST</a>
+        <nav class="nav">
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+
+    <!-- PAGE HEADER (title/subtitle filled in by plots-render.js once the listing loads) -->
+    <section class="page-header">
+      <div class="container">
+        <h1 id="plotsTitle">Plot Map</h1>
+        <p id="plotsSubtitle">Loading&hellip;</p>
+      </div>
+    </section>
+
+    <!-- PLOT MAP CONTENT -->
+    <section class="properties-section">
+      <div class="container">
+        <div id="plotsContent">
+          <p class="loading-text" role="status">Loading plot map&hellip;</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h4>KDST Real Estate</h4>
+            <p>
+              Your reliable partner for trusted land transactions across
+              Nepal. Building trust, one plot at a time.
+            </p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="properties.html">Properties</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              Lokanthali, Bhaktapur<br />Phone: +977 9851119368<br />Email:
+              <a href="mailto:info@kdst-real-estate.com" class="link-accent">info@kdst-real-estate.com</a>
+            </p>
+          </div>
+          <div>
+            <h4>Office Hours</h4>
+            <p>
+              Sunday - Friday <br />10:00 AM - 5:00 PM <br />Saturday: Closed
+            </p>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; <span id="copyrightYear">2025</span> KDST Real Estate Nepal. All rights reserved. &nbsp;·&nbsp; <a href="/admin/" class="footer-bottom-link">Staff Login</a> &nbsp;·&nbsp; <a href="privacy-policy.html" class="footer-bottom-link">Privacy Policy</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
