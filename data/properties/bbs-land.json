@@ -1,0 +1,19 @@
+{
+  "details": [
+    {
+      "icon": "file-check",
+      "label": "0-4-0-0"
+    }
+  ],
+  "badge": "New",
+  "priceValue": 2000000,
+  "priceLabel": "20 Lakh",
+  "order": 40,
+  "plots": [],
+  "location": "kathmandu",
+  "title": "basundhara land",
+  "type": "land",
+  "id": "bbs-land",
+  "image": "/assets/uploads/whatsapp_image_2025-12-10_at_08_04_33.jpeg",
+  "locationLabel": "basundhara"
+}
