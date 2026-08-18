@@ -42,9 +42,25 @@ function main() {
     fail(`Source directory not found: ${SOURCE_DIR}`);
   }
 
-  const files = fs
-    .readdirSync(SOURCE_DIR)
-    .filter((name) => name.toLowerCase().endsWith('.json'));
+  const allEntries = fs.readdirSync(SOURCE_DIR);
+  const files = allEntries.filter((name) => name.toLowerCase().endsWith('.json'));
+
+  // A non-JSON file in this folder (e.g. a .md the CMS saved because of
+  // a config mismatch) previously failed silently: it was just skipped,
+  // so a property could go missing from the live site with no error
+  // anywhere. Fail loudly instead, the same way we already do for
+  // malformed JSON below, so this can't happen unnoticed again.
+  const unexpectedFiles = allEntries.filter(
+    (name) => !name.startsWith('.') && !name.toLowerCase().endsWith('.json')
+  );
+  if (unexpectedFiles.length > 0) {
+    fail(
+      `Found non-JSON file(s) in ${SOURCE_DIR}: ${unexpectedFiles.join(', ')}. ` +
+        `Every property must be a .json file — check admin/config.yml has ` +
+        `"extension: json" and "format: json" set on the properties collection, ` +
+        `and remove or convert the file(s) listed above.`
+    );
+  }
 
   if (files.length === 0) {
     fail(`No property files found in ${SOURCE_DIR}`);

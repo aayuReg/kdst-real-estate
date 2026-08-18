@@ -74,7 +74,17 @@
               Fill out the form below and our team will get back to you within 24 hours.
             </p>
             
-            <form id="contactForm" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+            <!--
+              action matches FORM_ENDPOINT in script/main.js. Normally
+              main.js intercepts submit and handles everything (POSTs
+              here via fetch, shows the success/error alert). This
+              action attribute is the no-JS safety net only: if a
+              visitor's browser somehow can't run the page's JS, the
+              browser falls back to a native POST straight to this same
+              endpoint instead of doing nothing. Keep these two in sync
+              if you ever change Formspree forms.
+            -->
+            <form id="contactForm" method="POST" action="https://formspree.io/f/mgawzzna">
               <div class="form-group">
                 <label for="name">Full Name *</label>
                 <input 

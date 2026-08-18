@@ -26,6 +26,16 @@ collections:
     folder: "data/properties"
     create: true
     delete: true
+    # Without these two lines, Decap defaults folder collections to
+    # Markdown-with-frontmatter (.md) for anything created through the
+    # CMS. The existing seed listings are flat .json files, and
+    # scripts/build-properties.js only reads *.json — so new entries
+    # saved as .md were silently invisible to the build (deploy still
+    # succeeded, since nothing about a .md file is "wrong" to the build
+    # script; it just never looked at it). This forces the CMS to save
+    # in the same flat-JSON format the rest of the pipeline expects.
+    extension: "json"
+    format: "json"
     slug: "{{fields.id}}"
     identifier_field: "id"
     summary: "{{title}} — {{priceLabel}}"
