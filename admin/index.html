@@ -34,6 +34,193 @@
          a deliberate version bump here. Latest stable at time of pinning:
          3.15.1 — see https://github.com/decaporg/decap-cms/releases before upgrading. -->
     <script src="https://unpkg.com/decap-cms@3.15.1/dist/decap-cms.js"></script>
+
+    <!-- Live preview for the Properties collection. Uses the same
+         classNames/CSS as the real plot map (script/plots-render.js,
+         style/components.css) so what you see here matches what
+         visitors will see, without needing to save and check the live
+         site. createClass/h are globals Decap exposes specifically for
+         this script-tag (no build step) usage — see
+         https://decapcms.org/docs/customization/
+         Deliberately groups by Block name using an EXACT string match,
+         same as the live site — this is intentional: if you typo a
+         Block name (e.g. "Block A " with a trailing space), the preview
+         will show it as its own separate block section below, the same
+         way the live map would, so the mistake is visible immediately
+         instead of silently splitting a block on the live site. -->
+    <script>
+      if (window.CMS && window.createClass && window.h) {
+        (function () {
+          var h = window.h;
+          var createClass = window.createClass;
+
+          var STATUS_CLASS = {
+            available: "plot-cell-available",
+            reserved: "plot-cell-reserved",
+            sold: "plot-cell-sold",
+          };
+          var STATUS_LABEL = {
+            available: "Available",
+            reserved: "Reserved",
+            sold: "Sold",
+          };
+
+          function groupByBlock(plots) {
+            var order = [];
+            var byName = {};
+            plots.forEach(function (plot) {
+              var name = plot.get("block") || "Plots";
+              if (!byName[name]) {
+                byName[name] = [];
+                order.push(name);
+              }
+              byName[name].push(plot);
+            });
+            return order.map(function (name) {
+              return { name: name, plots: byName[name] };
+            });
+          }
+
+          function plotCell(plot, index) {
+            var status = plot.get("status") || "available";
+            var row = Number(plot.get("row")) > 0 ? Number(plot.get("row")) : 1;
+            var col = Number(plot.get("col")) > 0 ? Number(plot.get("col")) : 1;
+            var label = plot.get("label") || "?";
+            var sizeLabel = plot.get("sizeLabel") || "size not specified";
+            var statusLabel = STATUS_LABEL[status] || "Status Unavailable";
+            var cellClass = STATUS_CLASS[status] || "plot-cell-sold";
+
+            return h(
+              "div",
+              {
+                key: "plot-" + index,
+                className: "plot-cell " + cellClass,
+                style: { gridRow: row, gridColumn: col },
+                title: label + " — " + sizeLabel + " — " + statusLabel,
+              },
+              label
+            );
+          }
+
+          function blockSection(block, blockIndex) {
+            var maxCol = 1;
+            block.plots.forEach(function (plot) {
+              var col = Number(plot.get("col"));
+              if (col > maxCol) maxCol = col;
+            });
+
+            return h(
+              "div",
+              { key: "block-" + blockIndex, className: "plot-block" },
+              h("h3", { className: "plot-block-title" }, block.name),
+              h(
+                "div",
+                {
+                  className: "plot-grid",
+                  style: { gridTemplateColumns: "repeat(" + maxCol + ", 44px)" },
+                },
+                block.plots.map(function (plot, i) {
+                  return plotCell(plot, blockIndex + "-" + i);
+                })
+              )
+            );
+          }
+
+          function legend() {
+            return h(
+              "div",
+              { className: "plot-legend" },
+              h(
+                "span",
+                { className: "plot-legend-item" },
+                h("span", { className: "plot-legend-swatch plot-cell-available" }),
+                "Available"
+              ),
+              h(
+                "span",
+                { className: "plot-legend-item" },
+                h("span", { className: "plot-legend-swatch plot-cell-reserved" }),
+                "Reserved"
+              ),
+              h(
+                "span",
+                { className: "plot-legend-item" },
+                h("span", { className: "plot-legend-swatch plot-cell-sold" }),
+                "Sold"
+              )
+            );
+          }
+
+          var PropertyPreview = createClass({
+            render: function () {
+              var entry = this.props.entry;
+              var data = entry.get("data");
+              if (!data) return h("div", {}, "");
+
+              var title = data.get("title") || "Untitled property";
+              var type = data.get("type");
+              var locationLabel = data.get("locationLabel") || "";
+              var priceLabel = data.get("priceLabel") || "";
+              var plots = data.get("plots");
+              var hasPlots = type === "colony" && plots && plots.size > 0;
+
+              return h(
+                "div",
+                { style: { padding: "24px", fontFamily: "sans-serif" } },
+                h("h1", { style: { marginBottom: "4px" } }, title),
+                locationLabel
+                  ? h("p", { style: { color: "#666", marginBottom: "4px" } }, locationLabel)
+                  : null,
+                priceLabel
+                  ? h("p", { style: { fontWeight: "bold", marginBottom: "20px" } }, priceLabel)
+                  : null,
+                type === "colony" && !hasPlots
+                  ? h(
+                      "p",
+                      { style: { fontStyle: "italic", color: "#888" } },
+                      "No plots added yet — add plots below and they'll appear here as you type."
+                    )
+                  : null,
+                hasPlots
+                  ? h(
+                      "div",
+                      {},
+                      h(
+                        "p",
+                        { style: { fontStyle: "italic", color: "#888", marginBottom: "16px" } },
+                        "Plot Map Preview — updates live as you edit plots below. Each box below is a separate Block; if you see more blocks than you meant to create, check for a typo in a Block name."
+                      ),
+                      legend(),
+                      h(
+                        "div",
+                        {
+                          className: "plot-blocks-wrapper",
+                          style: { display: "flex", flexWrap: "wrap", gap: "40px", marginTop: "20px" },
+                        },
+                        groupByBlock(plots).map(function (block, i) {
+                          return blockSection(block, i);
+                        })
+                      )
+                    )
+                  : null
+              );
+            },
+          });
+
+          CMS.registerPreviewTemplate("properties", PropertyPreview);
+
+          // Reuse the real site CSS so colors/spacing match exactly —
+          // just base.css (CSS variables + resets) and components.css
+          // (the .plot-* classes themselves). layout.css is skipped on
+          // purpose: it styles the header/nav/page grid, which isn't
+          // relevant inside the CMS's own preview pane and could
+          // introduce unwanted layout side effects there.
+          CMS.registerPreviewStyle("/style/base.css");
+          CMS.registerPreviewStyle("/style/components.css");
+        })();
+      }
+    </script>
+
     <script>
       // Redirect back to /admin/ after a client clicks the confirmation
       // link in their invite/reset email, and keep them logged in.
